@@ -1,6 +1,6 @@
 import {promises as fs} from "fs"
 
-class ProductManager{
+export default class ProductManager{
     constructor(){
         this.path = "./products.json"
        
@@ -40,6 +40,11 @@ class ProductManager{
     
         
     }
+
+    readProducts = async() =>{
+        let verProductos = await fs.readFile(this.path, "utf-8")
+        return JSON.parse(verProductos)
+    }
     //Ver productos
     getProducts = async() =>{
        let verProductos = await fs.readFile(this.path, "utf-8")
@@ -74,14 +79,20 @@ class ProductManager{
     }
 }
 
-const productos = new ProductManager
+// const productos = new ProductManager
 
-
+//
 //productos.addProducts("camiseta1", "descripcion", 10000, "imagen1", "sl1", 10)
 //productos.addProducts("short", "descripcion2", 5000, "imagen2", "sl2", 5) 
 //productos.addProducts("gorro", "descripcion3", 3000, "imagen3", "sl3", 3) 
-//productos.addProducts("gorro2", "descripcion32", 30002, "imagen32", "sl32", 32)
-productos.addProducts("gorro22", "descripcion322", 300022, "imagen322", "sl322", 322)
-//productos.addProducts("gorro23", "descripcion323", 300023, "imagen323", "sl323", 323)
-productos.getElementById(2)
+//productos.addProducts("gorro2", "descripcion32", 30002, "imagen32", "sl4", 32)
+//productos.addProducts("gorro22", "descripcion322", 300022, "imagen322", "sl5", 322)
+//productos.addProducts("gorro23", "descripcion323", 300023, "imagen323", "sl6", 323)
+//productos.addProducts("camiseta10", "descripcion10", 11000, "imagen10", "sl7", 16)
+//productos.addProducts("camiseta11", "descripcion11", 12000, "imagen11", "sl8", 15)
+//productos.addProducts("camiseta12", "descripcion12", 13000, "imagen12", "sl9", 13)
+//productos.addProducts("camiseta13", "descripcion13", 14000, "imagen13", "sl10", 13)
+//productos.addProducts("camiseta14", "descripcion14", 15000, "imagen14", "sl11", 12)
+//productos.addProducts("camiseta15", "descripcion15", 16000, "imagen15", "sl12", 11)
+// productos.getElementById(2)
 
